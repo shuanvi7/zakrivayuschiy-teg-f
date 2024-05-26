@@ -11,4 +11,8 @@
   --gradient-default-color: #d3d3d3;
   --gradient-color-start: #e7e7e7;
   --gradient-color-end: #1a1a1a;
+
+  --min-inline-size: 375px;
+  --max-inline-size: 1440px;
+  --default-inline-size: 48.612%;
 }

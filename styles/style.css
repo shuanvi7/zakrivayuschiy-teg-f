@@ -22,6 +22,7 @@ html {
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  padding-block-start: 100px;
   font-family: var(--font-primary);
   font-variation-settings: var(--font-weight-text);
   background-image: repeating-linear-gradient(to right, transparent 0 2px, var(--gradient-default-color) 2px 4px),
@@ -29,4 +30,134 @@ html {
     linear-gradient(var(--gradient-color-start) 0.01%, var(--gradient-color-end));
   background-size: cover;
   background-attachment: fixed;
+}
+
+.container {
+  max-inline-size: clamp(var(--min-inline-size), var(--default-inline-size), var(--max-inline-size));
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-block-end: 100px;
+  padding-block: 136px 24px;
+  font-family: var(--font-accent);
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-text);
+}
+
+.header__logo {
+  margin-block-end: 20px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
+}
+
+.header__title {
+  margin-block-end: 24px;
+  font-size: clamp(14px, 2.5vw, 23px);
+  text-transform: uppercase;
+}
+
+.header__theme-menu {
+  padding-inline-start: 18px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.theme-menu__button {
+  position: relative;
+  font-size: 14px;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+.theme-menu__button:hover,
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  /* animation: theme-checked 1s infinite ease-in-out; */
+}
+
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-text);
+}
+
+.card__title {
+  padding-block: 5px;
+  padding-inline-start: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  border-block-end: 2px solid var(--color-text);
+}
+
+.card__picture {
+  position: relative;
+  max-block-size: 696px;
+}
+
+.card__label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  text-transform: uppercase;
+  text-shadow: 1px rgba(var(--color-text), 0.6);
+}
+
+.card__text {
+  margin: 25px;
+}
+
+.card__text:not(:last-child) {
+  margin-block-end: 27px;
+}
+
+.card__text:last-of-type {
+  margin-block-start: 0;
+}
+
+.card__like-button {
+  margin-inline-end: 25px;
+  margin-block-end: 25px;
+  align-self: flex-end;
+}
+
+@media (width <= 375px) {
+  .container {
+    --default-inline-size: 100%;
+  }
+
+  .header {
+    padding-block-start: 120px;
+  }
 }

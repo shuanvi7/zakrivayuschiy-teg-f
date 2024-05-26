@@ -37,6 +37,11 @@ input {
   font-size: inherit;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+}
+
 ul,
 ol {
   margin: 0;
