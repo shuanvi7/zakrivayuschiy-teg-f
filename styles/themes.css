@@ -19,6 +19,8 @@
 
   --color-bg: #000;
   --color-text: #00cc14;
+  --color-like-button: #00cc14;
+  --color-like-button-contour: #00cc14;
 
   --gradient-default-color: #000;
   --gradient-color-start: #007f0c;
@@ -32,6 +34,8 @@
 
     --color-bg: #000;
     --color-text: #00cc14;
+    --color-like-button: #00cc14;
+    --color-like-button-contour: #00cc14;
 
     --gradient-default-color: #000;
     --gradient-color-start: #007f0c;
