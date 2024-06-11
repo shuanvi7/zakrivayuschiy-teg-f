@@ -1,9 +1,9 @@
 :root {
   --font-primary: 'Inter', Arial, Helvetica, sans-serif;
-  --font-accent: 'PressStart2P', Courier, Monaco, monospace;
+  --font-accent: 'PressStart2P', fantasy;
 
-  --font-weight-text: 'wght' 400;
-  --font-weigth-heading: 'wght' 700;
+  --font-weight-text: 400;
+  --font-weigth-heading: 700;
 
   --color-bg: #fff;
   --color-text: #000;

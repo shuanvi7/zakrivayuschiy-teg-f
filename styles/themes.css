@@ -11,6 +11,13 @@
 
   --color-bg: #fff;
   --color-text: #000;
+
+  --color-like-button: #fff;
+  --color-like-button-contour: #000;
+
+  --gradient-default-color: #d3d3d3;
+  --gradient-color-start: #e7e7e7;
+  --gradient-color-end: #1a1a1a;
 }
 
 :root.theme-dark {

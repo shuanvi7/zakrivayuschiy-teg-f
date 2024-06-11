@@ -29,7 +29,7 @@ html {
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: var(--font-weight-text);
+  font-variation-settings: 'wght' var(--font-weight-text, 400);
 }
 
 .container {
@@ -94,10 +94,8 @@ html {
 .theme-menu__button:disabled::before {
   content: '▶';
   position: absolute;
-  top: 50%;
   left: -20px;
-  transform: translateY(-50%);
-  animation: themeButtonChecked 0.5s infinite ease-in-out;
+  animation: themeButtonChecked 0.5s infinite alternate ease-in-out;
 }
 
 .theme-menu__button::after {
@@ -108,6 +106,7 @@ html {
   background-color: var(--color-text);
   transition: transform 0.3s ease;
   transform: scale(0);
+  transform-origin: left;
 }
 
 .theme-menu__button:focus,
@@ -119,6 +118,13 @@ html {
 .theme-menu__button:focus-visible::after {
   content: '';
   transform: scale(1);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-block-end: 103px;
 }
 
 .cards-list {
@@ -138,8 +144,8 @@ html {
   border-block-end: 2px solid var(--color-text);
   padding-inline: 10px 24px;
   padding-block: 5px;
-  font-weight: var(--font-weigth-heading);
   font-size: 18px;
+  font-variation-settings: 'wght' var(--font-weigth-heading);
 }
 
 .card__picture {
@@ -165,8 +171,8 @@ html {
 
 .card__text {
   margin: 25px;
-  font-weight: var(--font-weight-text);
   font-size: 18px;
+  font-variation-settings: 'wght' var(--font-weight-text);
 }
 
 .card__text:last-of-type {
@@ -183,6 +189,9 @@ html {
 }
 
 .card__icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid transparent;
   padding-block-start: 1px;
   transition: border-color 0.3s ease;
@@ -194,9 +203,7 @@ html {
   outline: none;
 }
 
-.card__like-button,
-.save-button,
-.modal__button {
+.button {
   position: relative;
   display: flex;
   justify-content: center;
@@ -211,16 +218,12 @@ html {
   block-size: 38px;
 }
 
-.card__like-button:focus-visible,
-.save-button:focus-visible,
-.modal__button:focus-visible {
+.button:focus-visible {
   box-shadow: 2px 2px 0 var(--color-text);
   outline: none;
 }
 
-.card__like-button::before,
-.save-button::before,
-.modal__button::before {
+.button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -233,9 +236,7 @@ html {
   transform: translate(-100%);
 }
 
-.card__like-button:hover::before,
-.save-button:hover::before,
-.modal__button:hover::before {
+.button:hover::before {
   content: '';
   transform: translate(0%);
 }
@@ -246,8 +247,15 @@ html {
 }
 
 .save-button__icon {
-  stroke: var(--color-like-button);
+  fill: var(--color-like-button);
+  inline-size: 21px;
+  block-size: 21px;
   mix-blend-mode: difference;
+}
+
+.modal__inner-icon {
+  min-block-size: 39px;
+  min-inline-size: 39px;
 }
 
 .sparks {
@@ -289,6 +297,16 @@ html {
   transition: fill 0.3s linear 0.06s;
 }
 
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.1s linear;
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
 .is-liked .heart {
   animation: likeScale 0.3s ease-in 0.1s alternate;
 }
@@ -297,42 +315,37 @@ html {
   animation: likeShine 0.3s ease-in 0.3s alternate;
 }
 
-.card__img_filter-2 {
+.filter-saturate-20 {
   filter: saturate(20%);
 }
 
-.card__img_filter-3 {
+.filter-saturate-500 {
   filter: saturate(500%) contrast(100%) brightness(100%);
 }
 
-.card__img_filter-4 {
+.filter-saturate-200 {
   filter: saturate(200%) grayscale(50%) hue-rotate(25deg) sepia(30%) contrast(100%) brightness(100%);
 }
 
-.card__img_filter-5 {
+.filter-saturate-220 {
   filter: saturate(220%) invert(60%) contrast(200%) brightness(120%);
 }
 
-.card__img_filter-6 {
+.filter-saturate-30 {
   filter: saturate(30%) sepia(60%) invert(20%) grayscale(50%) contrast(200%);
 }
 
-.card__img_filter-7 {
+.filter-saturate-blur {
   filter: saturate(80%) blur(10px);
 }
 
-.card__img_filter-8 {
+.filter-invert-20 {
   filter: saturate(30%) invert(20%) contrast(200%) hue-rotate(100deg) brightness(80%);
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  padding-block: 50px 103px;
 }
 
 .save-button {
   gap: 9px;
+  align-self: center;
   line-height: 1;
   background-color: var(--color-bg);
   min-inline-size: 339px;
@@ -406,5 +419,15 @@ html {
     padding: 15px 0;
     min-inline-size: 306px;
     block-size: 80px;
+  }
+
+  .save-button__icon {
+    min-inline-size: 28px;
+    min-block-size: 28px;
+  }
+
+  .modal__inner-icon {
+    min-block-size: 39px;
+    min-inline-size: 39px;
   }
 }
