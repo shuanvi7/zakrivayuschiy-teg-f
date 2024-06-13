@@ -169,14 +169,17 @@ html {
   mix-blend-mode: hard-light;
 }
 
-.card__text {
-  margin: 25px;
-  font-size: 18px;
-  font-variation-settings: 'wght' var(--font-weight-text);
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  padding: 25px;
 }
 
-.card__text:last-of-type {
-  margin-block-start: 2px;
+.card__text {
+  font-size: 18px;
+  line-height: calc(21 / 18);
+  font-variation-settings: 'wght' var(--font-weight-text);
 }
 
 .card__buttons {
@@ -299,12 +302,12 @@ html {
 
 .like-icon .core {
   fill: transparent;
-  transition: fill 0.1s linear;
+  transition: fill 0.3s linear 0.03s;
 }
 
 .like-icon .main-body {
   fill: transparent;
-  transition: fill 0.3s linear;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .is-liked .heart {
@@ -403,11 +406,6 @@ html {
     padding-inline-start: 21px;
   }
 
-  .card__title {
-    padding-block: 5px 4px;
-    line-height: 1.2;
-  }
-
   .card__label {
     top: 23px;
     right: 11px;
@@ -417,8 +415,8 @@ html {
     flex-direction: column;
     justify-content: space-between;
     padding: 15px 0;
-    min-inline-size: 306px;
-    block-size: 80px;
+    min-inline-size: 310px;
+    block-size: 84px;
   }
 
   .save-button__icon {
